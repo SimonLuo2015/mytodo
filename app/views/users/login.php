@@ -32,3 +32,4 @@
 </p>
 
 <?php echo form_close(); ?>
+<!-- where is /form -->
