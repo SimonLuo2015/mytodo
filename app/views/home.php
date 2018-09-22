@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"; charset="utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>myTodo Task Manager</title>
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.css"  type="text/css" />
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/custom.css"  type="text/css" />
