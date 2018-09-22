@@ -31,4 +31,4 @@
     <?php echo form_submit($data); ?>
 </p>
 
-<?php form_close(); ?>
+<?php echo form_close(); ?>
