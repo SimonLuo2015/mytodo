@@ -89,7 +89,8 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','form','html');
+// 比教程里多了security，因为CI2直接默认可以加载xss_clean，但是到了CI3，就依赖security了。
+$autoload['helper'] = array('url','form','html', 'security');
 
 /*
 | -------------------------------------------------------------------
