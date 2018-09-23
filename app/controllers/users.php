@@ -12,8 +12,12 @@ class Users extends CI_Controller{
             $data['main_content'] = 'users/register';
             $this->load->view('layouts/main', $data);
         } else{
-            $data['main_content'] = 'home';
-            $this->load->view('layouts/main', $data);
+            // 先在这里根据需要写出伪代码，然后命名model和function，最后再到对应的model文件夹下编写model代码文件。
+            if($this->User_model->create_member()){
+                $this->session->set_flashdata('registered', 'You are now registered and can login.');
+                redirect('home/index');
+            }
+
         }
 
     }
