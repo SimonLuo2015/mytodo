@@ -12,6 +12,8 @@ class Lists extends CI_Controller{
     public function index(){
         $user_id = $this->session->userdata('user_id');
 
+        $data['lists'] = $this->List_model->get_lists();
+
         //Load view and layout
         $data['main_content'] = 'lists/index';
         $this->load->view('layouts/main', $data);
