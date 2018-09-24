@@ -1,0 +1,5 @@
+ul.list_items li{
+    padding: 5px;
+    border-bottom: 1px #ccc dashed;
+    list-style: square;
+}
