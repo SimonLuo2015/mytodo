@@ -8,7 +8,7 @@
     <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('logged_out'); ?></p>
 <?php endif; ?>
 <?php if($this->session->flashdata('noaccess')): ?>
-    <p class="alert alert-dismissable alert-success"><?php echo $this->session->flashdata('noaccess'); ?></p>
+    <p class="alert alert-dismissable alert-danger"><?php echo $this->session->flashdata('noaccess'); ?></p>
 <?php endif; ?>
 <h1>Welcome to myTodo!</h1>
 <p>myTodo use a simple and helpful application to help you manage your day to day tasks. You can add as many task lists as you want. myTodo is absolutely free! Have fun.</p> 
