@@ -14,7 +14,11 @@
                 <div class="nav-collapse collapse">
                     <p class="navbar-text pull-right">
                         <!--RIGHT TOP CONTENT-->
-                        <a href="<?php echo base_url()?>users/register">Register</a>
+                        <?php if($this->session->userdata('logged_in')): ?>
+                            Welcome, <?php echo $this->session->userdata('username'); ?>
+                        <?php else: ?>
+                            <a href="<?php echo base_url()?>users/register">Register</a>
+                        <?php endif; ?>
                     </p>
                     <ul class="nav">
                         <li><a href="<?php echo base_url()?>">Home</a></li>
