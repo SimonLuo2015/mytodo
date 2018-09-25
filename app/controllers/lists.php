@@ -64,7 +64,7 @@ class Lists extends CI_Controller{
             // Get the current list info
             $data['this_list'] = $this->List_model->get_list_data($list_id);
             // Load view and layout
-            $data['main_content'] = 'lists/add_list';
+            $data['main_content'] = 'lists/edit_list';
             $this->load->view('layouts/main', $data);
         } else {
             //Validation has ran and passed
@@ -80,6 +80,15 @@ class Lists extends CI_Controller{
                 redirect('lists/index');
             }
         }
+    }
+
+    public function delete($list_id){
+        // Delete list
+        $this->List_model->delete_list($list_id);
+        // Create Message
+        $this->session->set_flashdata('list_deleted', 'Your list has been deleted.');
+        // Redirect to list index
+        redirect('lists/index');
     }
 }
 
