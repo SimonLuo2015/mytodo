@@ -1,14 +1,14 @@
 <?php
 class Task_model extends CI_Model{
     public function get_task($id){
-        $query = $this->db->get('tasks');
         $this->db->where('id', $id);
+        $query = $this->db->get('tasks');        
         return $query->row();
     }
 
     public function check_if_complete($id){
-        $query = $this->db->get('tasks');
         $this->db->where('id', $id);
+        $query = $this->db->get('tasks');
         return $query->row()->is_complete;
     }
 
@@ -21,5 +21,23 @@ class Task_model extends CI_Model{
     public function create_task($data){
         $insert = $this->db->insert('tasks', $data);
         return $insert;
+    }
+
+    public function get_task_list_id($task_id){
+        $this->db->where('id', $task_id);
+        $query = $this->db->get('tasks');        
+        return $query->row()->list_id;        
+    }
+
+    public function get_task_data($task_id){
+        $this->db->where('id', $task_id);
+        $query = $this->db->get('tasks');
+        return $query->row();
+    }
+
+    public function edit_task($task_id, $data){
+        $this->db->where('id', $task_id);
+        $this->db->update('tasks', $data);
+        return TRUE;
     }
 }
