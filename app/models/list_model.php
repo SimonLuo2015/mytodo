@@ -6,8 +6,10 @@ class List_model extends CI_Model{
     }
 
     public function get_list($id){
-        $query = $this->db->get('lists');
         $this->db->where('id', $id);
+        $query = $this->db->get('lists');
+        // 你妈啊，这里上面两行写反了，导致get_list函数不管输入
+        // 的id是多少，都直接返回第一条记录。
         return $query->row();
     }
 

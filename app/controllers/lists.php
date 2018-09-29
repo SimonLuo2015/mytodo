@@ -22,6 +22,7 @@ class Lists extends CI_Controller{
     public function show($id){
         // Get all lists from the model.
         $data['list'] = $this->List_model->get_list($id);
+        // log_message('debug', $data['list']);
         // Get all completed tasks for this list.
         // $data['completed_tasks'] = $this->List_model->get_list_tasks($id, TRUE);
         // Get all uncompleted tasks for this list
@@ -30,6 +31,8 @@ class Lists extends CI_Controller{
         // Load view and layout
         $data['main_content'] = 'lists/show';
         $this->load->view('layouts/main', $data);
+        // $this->load->view('log', $data);
+
     }
 
     public function add(){
