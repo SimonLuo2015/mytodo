@@ -1,9 +1,32 @@
 <?php
 class Task_model extends CI_Model{
     public function get_task($id){
-        $this->db->where('id', $id);
-        $query = $this->db->get('tasks');        
-        return $query->row();
+        // $this->db->where('id', $id);
+        // $query = $this->db->get('tasks');        
+        // return $query->row();
+        
+        //视频作者
+        $this->db->select('
+                    tasks.task_name,
+                    tasks.id,
+                    tasks.create_date,
+                    tasks.due_date,
+                    tasks.task_body,
+                    tasks.is_complete,
+                    lists.id as list_id,
+                    lists.list_name,
+                    lists.list_body
+        ');
+        $this->db->from('tasks');
+        $this->db->join('lists', 'lists.id = tasks.list_id');
+        $this->db->where('tasks.id', $id);
+        $query = $this->db->get();
+        if($query->num_rows() != 1){
+            return FALSE;
+        } else {
+            return $query->row();
+        }
+
     }
 
     public function check_if_complete($id){
@@ -40,4 +63,12 @@ class Task_model extends CI_Model{
         $this->db->update('tasks', $data);
         return TRUE;
     }
+
+    public function delete($task_id){
+        $this->db->where('id', $task_id);
+        $this->db->delete('tasks');
+        return TRUE;
+    }
+
+
 }
