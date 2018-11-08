@@ -24,9 +24,9 @@ class Lists extends CI_Controller{
         $data['list'] = $this->List_model->get_list($id);
         // log_message('debug', $data['list']);
         // Get all completed tasks for this list.
-        $data['completed_tasks'] = $this->List_model->get_list_tasks($id, TRUE);
+        $data['active_tasks'] = $this->List_model->get_list_tasks($id, TRUE);
         // Get all uncompleted tasks for this list
-        $data['uncompleted_tasks'] = $this->List_model->get_list_tasks($id, FALSE);
+        $data['inactive_tasks'] = $this->List_model->get_list_tasks($id, FALSE);
 
         // Load view and layout
         $data['main_content'] = 'lists/show';
