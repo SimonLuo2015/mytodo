@@ -45,7 +45,7 @@ class List_model extends CI_Model{
     public function delete_list($list_id){
         $this->db->where('id', $list_id);
         $this->db->delete('lists');
-        // $this->delete_tasks_of_list($list_id);
+        $this->delete_tasks_of_list($list_id);
         return;
     }
 
@@ -77,6 +77,12 @@ class List_model extends CI_Model{
             return FALSE;
         } 
         return $query->result();
+    }
+
+    public function delete_tasks_of_list($list_id){
+        $this->db->where('list_id', $list_id);
+        $this->db->delete('tasks');
+        return TRUE;
     }
 }
 
