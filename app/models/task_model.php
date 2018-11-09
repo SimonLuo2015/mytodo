@@ -70,5 +70,27 @@ class Task_model extends CI_Model{
         return TRUE;
     }
 
+    public function mark_new($task_id){
+        $this->db->set('is_complete', 0);
+        $this->db->where('id', $task_id);
+        $this->db->update('tasks');
+        return TRUE;
+    }
+
+    public function mark_complete($task_id){
+        $this->db->set('is_complete', 1);
+        $this->db->where('id', $task_id);
+        $this->db->update('tasks');
+        return TRUE;
+    }
+
+    public function get_users_tasks($user_id){
+        $this->db->where('list_user_id', $user_id);
+        $this->db->join('tasks', 'lists.id = tasks.list_id');
+        $this->db->order_by('tasks.create_date', 'DESC');
+        $query = $this->db->get('lists');
+        return $query->result();
+    }
+
 
 }
